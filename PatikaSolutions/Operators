@@ -1,0 +1,82 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Operators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // Atama ve İşlemli Atama
+            int x = 5;
+            int y = 10;
+            y = y + 2;
+            Console.WriteLine(y); // 12
+            y += 2;
+            Console.WriteLine(y); // 14
+            y /= 2;
+            Console.WriteLine(y); // 7
+            y *= 2;
+            Console.WriteLine(y); // 14
+            Console.WriteLine("******************************");   
+
+            // Mantıksal Operatörler && ||
+
+            bool result = true;
+            bool result2 = false;
+
+            if (result && result2)
+            {
+                Console.WriteLine("Her ikisi de true");
+            }
+
+            if (result || result2)
+            {
+                Console.WriteLine("En az biri true");
+            }
+
+            if (result && !result2)
+            {
+                Console.WriteLine("result true result2 false");
+            }
+
+            Console.WriteLine("******************************");
+
+            // İlişkisel operatörler <, >, <=, >=, ==, !=
+
+            int i = 3;
+            int j= 4;
+            bool result3 = i<j;
+            bool result4 = i>j;
+            bool result5 = i<=j;
+            bool result6 = i>=j;
+            bool result7 = i==j;
+            bool result8 = i!=j;
+
+            Console.WriteLine(result3 + " " + result4 + " " + result5 + " " + result6 + " " + result7 + " " + result8);
+            Console.WriteLine("******************************");
+
+            // Aritmetik Operatörler /, *, +, -
+
+            int a = 10;
+            int b = 20;
+            int result9 = a * b;
+            int result10 = b / a;
+            int result11 = a + b;
+            int result12 = b - a;
+
+            Console.WriteLine("{0} {1} {2} {3}", result9, result10, result11, result12);
+
+
+            // % mod alır
+
+            int result13 = b % a;
+            Console.WriteLine(result13);   
+
+            Console.ReadLine();
+        }
+    }
+}
