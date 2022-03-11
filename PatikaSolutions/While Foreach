@@ -1,0 +1,42 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DoWhile
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Lütfen bir sayı giriniz!");
+            int x = int.Parse(Console.ReadLine());
+            int sayac = 1;
+            int toplam = 0;
+
+            while (sayac<=x)
+            {
+                toplam += sayac;
+                sayac++;
+            }
+            Console.WriteLine(toplam/x);
+
+            char alphabet = 'a';
+
+            while (alphabet <= 'z')
+            {
+                Console.Write(alphabet);
+                alphabet++;
+            }
+            Console.WriteLine();
+
+            string[] arabalar = { "BMW", "TOYOTA", "VOLKSWAGEN", "NISSAN" };
+            foreach (var araba in arabalar)
+            {
+                Console.WriteLine(araba);
+            }
+            Console.ReadLine();
+        }
+    }
+}
