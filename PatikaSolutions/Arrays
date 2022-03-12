@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Diziler
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            /* string [] renkler = new string [5]; 
+               renkler [0] = "Mavi"; 
+               string[] hayvanlar = {"Kedi", "Köpek", "At", "Eşşek"};
+               Console.WriteLine (hayvanlar [1]); */
+            Console.WriteLine("Lütfen dizi uzunluğunu belirtiniz: ");
+            int diziUzunlugu = int.Parse(Console.ReadLine());
+            int[] dizi = new int [diziUzunlugu];
+            int toplam = 0;
+            for (int i = 0; i < diziUzunlugu; i++)
+            {
+                Console.WriteLine("Lütfen {0}. sayıyı giriniz: ", i+1);
+                dizi [i] = Convert.ToInt32(Console.ReadLine());
+            } 
+
+            foreach (int toplamsayi in dizi)
+            {
+                toplam += toplamsayi;
+            }
+
+            Console.WriteLine("Ortalama: " + toplam/diziUzunlugu);
+            Console.ReadLine();
+           
+        }
+    }
+}
