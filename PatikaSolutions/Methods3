@@ -1,0 +1,138 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Recursive_Extention_Metotlar
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // bir sayının üstünü bulmanın iki farklı yolu
+
+            Console.WriteLine("Lütfen sayıyı giriniz!");
+            int sayi = int.Parse(Console.ReadLine());
+            Console.WriteLine("Lütfen üs ifadesini giriniz!");
+            int us = int.Parse(Console.ReadLine());
+            int result = 1;
+            for (int i = 1; i <= us; i++)
+            {
+                result *= sayi;
+            }
+            Console.WriteLine(result);
+            Console.WriteLine("**********");
+
+            Metot expo = new Metot();
+            Console.WriteLine(expo.Expo(5, 4));
+            Console.WriteLine(expo.Faktor(1));
+            string ifade = "Hello World and The Others";
+            bool sonuc = ifade.CheckSpaces();
+            Console.WriteLine(sonuc);
+            if (sonuc)
+            {
+                Console.WriteLine(ifade.RemoveWhiteBackSpaces());
+            }
+
+            Console.WriteLine(ifade.MakeUpperCase());
+            Console.WriteLine(ifade.MakeLowerCase());
+
+            int[] dizi = { 9, 3, 6, 2, 5, 0 };
+            dizi.SortArray();
+            dizi.EkranaYazdir();
+
+            int sayi2 = 5;
+            Console.WriteLine(sayi.IsEventNumber());
+            Console.WriteLine(ifade.GetFirstCharacter());
+
+            Console.ReadLine();
+        }
+    }
+
+    class Metot
+    {
+        public int Expo(int i1, int i2)
+        {
+
+            if (i2 < 2)
+            {
+                return i1;
+            }
+            else
+            {
+                return Expo(i1, i2 - 1) * i1;
+            }
+        }
+
+        public int Faktor(int sayi1)
+        {
+            Console.WriteLine("Lütfen faktöriyelini almak istediğiniz sayıyı giriniz!");
+            sayi1 = int.Parse(Console.ReadLine());
+            int result = 1;
+            if (sayi1 == 0)
+            {
+                result = 1;
+            }
+            else
+            {
+                for (int i = 1; i <= sayi1; i++)
+                {
+                    result *= i;
+                }
+            }
+            return result;
+            return sayi1;
+        }
+    }
+    public static class Extension
+    {
+        public static bool CheckSpaces(this string param)
+        {
+            return param.Contains(" ");
+        }
+
+        public static string RemoveWhiteBackSpaces(this string param)
+        {
+            string[] dizi = param.Split(' ');
+            return string.Join("/", dizi);
+        }
+
+        public static string MakeUpperCase(this string param)
+        {
+            return param.ToUpper();
+        }
+
+        public static string MakeLowerCase(this string param)
+        {
+            return param.ToLower();
+        }
+
+        public static int[] SortArray(this int[] param)
+        {
+            Array.Sort(param);
+            return param;
+        }
+
+        public static void EkranaYazdir(this int[] param)
+        {
+            foreach (var item in param)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        public static bool IsEventNumber(this int value)
+        {
+            if (value % 2 == 0)
+                return true;
+            else
+                return false;
+        }
+
+        public static string GetFirstCharacter(this string param)
+        {
+            return param.Substring(0, 1);
+        }
+    }
+}
