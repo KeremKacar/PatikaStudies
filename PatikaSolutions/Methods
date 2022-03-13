@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Metotlar_ve_Referanslar
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int i1 = 3;
+            int i2 = 4;
+            Console.WriteLine(i1 + i2);
+            int result = Topla(5, 7);
+            Console.WriteLine(result);
+
+            Metotlar referens = new Metotlar();
+
+            referens.EkranaYazdir(result.ToString());
+
+            Console.WriteLine(i1 + i2);
+            Console.WriteLine(referens.ArttirveTopla(ref i1 , ref i2));
+            Console.WriteLine(i1 + i2);
+            Console.ReadLine();
+
+
+        }
+
+        static int Topla(int sayi1, int sayi2)
+        {
+            return sayi1 + sayi2;
+        }
+    }
+
+    class Metotlar
+    {
+        public void EkranaYazdir (string veri)
+        {
+            Console.WriteLine(veri);
+        }
+        public int ArttirveTopla (ref int deger1, ref int deger2)
+        {
+            deger1 += 1;
+            deger2 += 1;
+            return deger1 + deger2;
+        }
+    }
+}
