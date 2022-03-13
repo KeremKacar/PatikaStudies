@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OutOverLoadingMetotlar
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int i = 587;
+
+            EkranaYazdir(i.ToString());
+            EkranaYazdir(i);
+
+            Metotlar metot = new Metotlar();
+            metot.Plus(5, 3, out int toplam);
+
+            Console.WriteLine(toplam);
+
+
+            Console.ReadLine();
+        }
+
+        public static void EkranaYazdir (string veri1)
+        {
+            Console.WriteLine(veri1);
+        }
+
+        public static void EkranaYazdir (int veri1)
+        {
+            Console.WriteLine(veri1);
+        }
+    }
+
+    class Metotlar
+    {
+        public void Plus (int i1, int i2, out int toplam)
+        {
+            toplam = i1 + i2;
+        }
+    }
+}
