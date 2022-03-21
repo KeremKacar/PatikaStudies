@@ -1,0 +1,97 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Odevler
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+              Alistirma alistir = new Alistirma();
+            
+            alistir.Odev1();
+            Console.WriteLine("*************");
+            alistir.Odev2();
+            Console.WriteLine("*************");
+            alistir.Odev3();
+            Console.WriteLine("*************");
+            alistir.Odev4();
+            Console.WriteLine("*************");
+
+           
+            Console.ReadLine();
+        }
+    }
+
+    class Alistirma
+    {
+        public void Odev1 ()
+        {
+            Console.WriteLine("Lütfen pozitif bir sayı giriniz.");
+            int number1 = int.Parse(Console.ReadLine());
+            int[] dizi = new int[number1];
+            Console.WriteLine("Lütfen {0} tane pozitif sayı giriniz.", number1);
+            for (int i = 0; i < number1; i++)
+            {
+                dizi[i] = int.Parse(Console.ReadLine());
+            }
+
+            for (int i = 0; i < dizi.Length; i++)
+            {
+                if (dizi[i] % 2 == 0)
+                {
+                    Console.WriteLine(dizi[i]);
+                }
+            }
+        }
+
+        public void Odev2 ()
+        {
+            Console.WriteLine("Lütfen 2 adet pozitif sayı giriniz.");
+            int number2 = int.Parse(Console.ReadLine());
+            int number3 = int.Parse(Console.ReadLine());
+            int[] dizi2 = new int[number2];
+            Console.WriteLine("Lütfen {0} adet sayı giriniz.", number2);
+            for (int i = 0; i < number2; i++)
+            {
+                dizi2[i] = int.Parse(Console.ReadLine());
+            }
+
+            foreach (int i in dizi2)
+            {
+                if (i % number3 == 0 || i == number3)
+                {
+                    Console.WriteLine(i + " ");
+                }
+            }
+        }
+        public void Odev3 ()
+        {
+            Console.WriteLine("Lütfen pozitif bir sayı giriniz!");
+            int kelimesayisi = int.Parse(Console.ReadLine());
+            string[] dizi3 = new string[kelimesayisi];
+            Console.WriteLine("Lütfen {0} adet kelime giriniz.", kelimesayisi);
+            for (int i = 0; i < kelimesayisi; i++)
+            {
+                dizi3[i] = Console.ReadLine();
+            }
+            Array.Reverse(dizi3);
+            foreach (string d in dizi3)
+            {
+                Console.WriteLine(d);
+            }
+        }
+        public void Odev4 ()
+        {
+            Console.WriteLine("Lütfen bir cümle giriniz!");
+            string cumle = Console.ReadLine();
+            string[] kelimeler = cumle.Split(' ');
+            string result = cumle.Replace(" ", "");
+            Console.WriteLine("Cümleniz {0} adet kelime içermektedir.", kelimeler.Length);
+            Console.WriteLine("Cümleniz {0} adet harf içermektedir.", result.Length);
+        }
+    }
+}
