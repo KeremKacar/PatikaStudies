@@ -1,0 +1,118 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DenemeTahtasii
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            // List Kullanımı: formatı -> List <T> listeIsmi = new List <T> ();
+
+            List<int> sayiListesi = new List<int>();
+            sayiListesi.Add(23);
+            sayiListesi.Add(10);
+            sayiListesi.Add(4);
+            sayiListesi.Add(5);
+            sayiListesi.Add(92);
+            sayiListesi.Add(34);
+
+            List<string> renkListesi = new List<string>();
+            renkListesi.Add("Kırmızı");
+            renkListesi.Add("Mavi");
+            renkListesi.Add("Turuncu");
+            renkListesi.Add("Sarı");
+            renkListesi.Add("Yeşil");
+
+            Console.WriteLine(renkListesi.Count);   // Count Komutu: Dizi içindeki eleman sayısını belirtir.
+            Console.WriteLine(sayiListesi.Count);   // Count Komutu: Dizi içindeki eleman sayısını belirtir.
+
+            foreach (string renk in renkListesi)
+            {
+                Console.WriteLine(renk);
+            }
+
+            foreach (int sayi in sayiListesi)
+            {
+                Console.WriteLine(sayi);
+            }
+            Console.WriteLine("----------------");
+            sayiListesi.ForEach(sayi => Console.WriteLine(sayi));
+            renkListesi.ForEach(renk => Console.WriteLine(renk));
+            Console.WriteLine("----------------");
+
+
+            sayiListesi.Remove(4);                                      // Remove Komutu: Diziden eleman çıkarmayı sağlar.
+            renkListesi.Remove("Yeşil");                                // Remove Komutu: Diziden eleman çıkarmayı sağlar.
+            Console.WriteLine("----------------");
+
+            sayiListesi.RemoveAt(0);                                    // RemoveAt Komutu: Diziden index'e göre eleman çıkarmayı sağlar.
+            renkListesi.RemoveAt(1);                                    // RemoveAt Komutu: Diziden index'e göre eleman çıkarmayı sağlar.
+
+            Console.WriteLine("----------------");
+            sayiListesi.ForEach(sayi => Console.WriteLine(sayi));
+            renkListesi.ForEach(renk => Console.WriteLine(renk));
+            Console.WriteLine("----------------");
+
+            sayiListesi.Contains(10);                                   // Contains Komutu: Bool ifade döner. Liste içinde arama
+                                                                        // yapılmasını sağlar.
+
+
+            Console.WriteLine(renkListesi.BinarySearch("Kırmızı"));     //BinarySearch Komutu: Eleman'ın hangi indexte olduğunu gösterir.
+
+            // Diziyi Listeye Çevirme
+
+            string[] hayvanlar = new string[] { "Kedi", "Köpek", "Kuş" };
+            List<string> hayvanListesi = new List<string>(hayvanlar); // <- <- <- <- <-
+
+            hayvanListesi.Clear();                                      // Clear Komutu: Listeyi temizlemeye yarar.
+            Console.WriteLine("----------------");
+
+
+            // LİSTEYE NESNE ATAMA
+
+            List<Kullanıcılar> kullanıcıListesi = new List<Kullanıcılar>();
+            Kullanıcılar user1 = new Kullanıcılar();
+            user1.Isim = "Merve";
+            user1.Soyisim = "Lale";
+            user1.Yas = 23;
+
+            Kullanıcılar user2 = new Kullanıcılar();
+            user2.Isim = "Kerem";
+            user2.Soyisim = "Kacar";
+            user2.Yas = 25;
+
+            kullanıcıListesi.Add(user1);
+            kullanıcıListesi.Add(user2);
+
+            List<Kullanıcılar> yeniListe = new List<Kullanıcılar>();
+            yeniListe.Add(new Kullanıcılar() { Isim = "Ahmet;", Soyisim = "Yılmaz", Yas = 29 });
+
+            foreach (Kullanıcılar kullanıcı in kullanıcıListesi)
+            {
+                Console.WriteLine("Kullanıcı ismi = " + kullanıcı.Isim);
+                Console.WriteLine("Kullanıcı Soyadı = " + kullanıcı.Soyisim);
+                Console.WriteLine("Kullanıcı Yaşı = " + kullanıcı.Yas);
+            }
+
+            Console.ReadLine();
+
+        }
+    }
+
+    public class Kullanıcılar
+    {
+        string isim;
+        string soyisim;
+        int yas;
+
+        public string Isim { get => isim; set => isim = value; }
+
+        public string Soyisim { get => soyisim; set => soyisim = value; }
+
+        public int Yas { get => yas; set => yas = value; }
+    }
+}
