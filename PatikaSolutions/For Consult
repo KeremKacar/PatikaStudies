@@ -1,0 +1,161 @@
+using System;
+using System.Collections.Generic;
+using System.Collections;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DenemeTahtasii
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ArrayList sayilar = new ArrayList();
+            bool canConvert = true;
+            int i3 = 0;
+
+
+            while (sayilar.Count != 20)
+            {
+                Console.WriteLine("Lütfen 1'den büyük pozitif bir tam sayı giriniz!");
+
+                string s = Console.ReadLine();
+                bool i2 = int.TryParse(s, out i3);
+
+                if (i3 < 2 || canConvert == false)
+                {
+                    Console.WriteLine("Geçerli bir sayı giriniz!");
+                }else
+                {
+                    sayilar.Add(i3);
+                }
+            }
+
+            ArrayList asalSayilar = new ArrayList();
+            ArrayList asalOlmayanSayilar = new ArrayList();
+            int sayac = 0;
+
+            foreach (int j in sayilar)
+            {
+                for (int l = 2; l <= j/2; l++)
+                    {
+                        if (j % l == 0)
+                        {
+                            sayac++;
+                        }
+                    }
+                    if (sayac == 0)
+                    {
+                        asalSayilar.Add(j);
+                    }else
+                    {
+                        asalOlmayanSayilar.Add(j);
+                    }
+                    sayac = 0;
+                
+            }
+            int asalOrtalama = 0;
+            int asalOlmayanOrtalama = 0;
+            asalSayilar.Sort();
+            asalOlmayanSayilar.Sort();
+
+            foreach (int i1 in asalSayilar)
+            {
+                asalOrtalama += i1;
+            }
+
+            foreach (int i2 in asalOlmayanSayilar)
+            {
+                asalOlmayanOrtalama += i2;
+            }
+
+            for (int i4 = 0; i4 < asalSayilar.Count; i4++)
+            {
+                Console.WriteLine("{0}. Asal sayı = {1}", (i4 + 1), asalSayilar[i4]);
+            }
+
+            for (int i5 = 0; i5 < asalOlmayanSayilar.Count; i5++)
+            {
+                Console.WriteLine("{0}. Asal olmayan sayı = {1}", (i5 + 1), asalOlmayanSayilar[i5]);
+            }
+
+            Console.WriteLine("Asal Olan Toplam {0} Adet Sayı Vardır!", asalSayilar.Count);
+            Console.WriteLine("Asal Olmayan Toplam {0} Adet Sayı Vardır! ", asalOlmayanSayilar.Count);
+            Console.WriteLine("Asal olan sayıların ortalaması = " + asalOrtalama/asalSayilar.Count + " " + "Asal olmayan sayıların ortalaması = " + asalOlmayanOrtalama/asalOlmayanSayilar.Count);
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Soru 2
+int [] dizi = new int [20];
+Console.WriteLine("Lütfen 20 adet tam sayı giriniz.");
+
+for (int i = 0; i < 20; i++)
+{
+
+   dizi[i]= (int.Parse(Console.ReadLine()));
+
+}
+
+Array.Sort(dizi);
+Array.Reverse(dizi);
+
+int enBuyuk = dizi[0] + dizi[1] + dizi[2];
+int enKucuk = dizi[17] + dizi[18] + dizi[19];
+
+Console.WriteLine("Dizinin en büyük 3 sayısı= {0}{1}{2}{3}{4}", dizi[0], " ", dizi[1], " ", dizi[2]);
+Console.WriteLine("Dizinin en küçük 3 sayısı= {0}{1}{2}{3}{4}", dizi[17], " ", dizi[18], " ", dizi[19]);
+Console.WriteLine("En büyük 3'lünün ortalaması= " + (enBuyuk/3));
+Console.WriteLine("En küçük 3'lünün ortalaması= " + (enKucuk / 3));
+Console.WriteLine("Ortalamalar Toplamı= " + ((enBuyuk/3)+ (enKucuk/3)));
+
+
+
+//Soru 3
+Console.WriteLine("Lütfen bir cümle giriniz.");
+string cumle = Console.ReadLine();
+string cumle2 = cumle.Replace(" ", "");
+
+char[] dizi1 = cumle2.ToCharArray();
+char[] dizi2 = new char[16];
+dizi2[0] = 'A'; dizi2[1] = 'E'; dizi2[2] = 'I'; dizi2[3] = 'İ'; dizi2[4] = 'O'; dizi2[5] = 'Ö'; dizi2[6] = 'U'; dizi2[7] = 'Ü';
+dizi2[8] = 'a'; dizi2[9] = 'e'; dizi2[10] = 'ı'; dizi2[11] = 'i'; dizi2[12] = 'o'; dizi2[13] = 'ö'; dizi2[14] = 'u'; dizi2[15] = 'ü';
+char[] sesliHarf = new char[dizi2.Length];
+int[] toplamSayi = new int[dizi2.Length];
+
+for (int i = 0; i < cumle2.Length; i++)
+{
+    for (int j = 0; j < dizi2.Length; j++)
+    {
+        if (dizi2[j] == dizi1[i])
+        {
+            sesliHarf[j] = dizi2[j];
+            toplamSayi[j]++;
+        }
+    }
+}
+ArrayList arrayList = new ArrayList();
+arrayList.AddRange(sesliHarf);
+arrayList.AddRange(toplamSayi);
+
+foreach (var c in arrayList)
+{
+    Console.WriteLine(c);
+}
+
+Console.ReadLine();*/
