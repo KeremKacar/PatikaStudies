@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Classlar
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            CalisanBilgileri calisanBilgileri1 = new CalisanBilgileri();
+            calisanBilgileri1.Ad = "Kerem";
+            calisanBilgileri1.Soyad = "Kacar";
+            calisanBilgileri1.No = 251832;
+            calisanBilgileri1.Departman = "Dış Ticaret";
+
+            CalisanBilgileri calisanBilgileri2 = new CalisanBilgileri();
+            calisanBilgileri2.Ad = "Sıla";
+            calisanBilgileri2.Soyad = "Hasret";
+            calisanBilgileri2.No = 526541;
+            calisanBilgileri2.Departman = "İnsan Kaynakları";
+
+            calisanBilgileri1.Bilgiİslem();
+            Console.WriteLine("*********************");
+            calisanBilgileri2.Bilgiİslem();
+
+            Console.ReadLine();
+        }
+    }
+
+    class CalisanBilgileri
+    {
+        public string Ad;
+        public string Soyad;
+        public int No;
+        public string Departman;
+
+        public void Bilgiİslem()
+        {
+            Console.WriteLine("Çalışan Ad = {0}", Ad);
+            Console.WriteLine("Çalışan Soyad = {0}", Soyad);
+            Console.WriteLine("Çalışan Numara = {0}", No);
+            Console.WriteLine("Çalışan Bölüm = {0}", Departman);
+        }
+    } 
+}
