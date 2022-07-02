@@ -1,0 +1,84 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace GetSet_ve_Kapsül
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            OgrenciBilgileri ogrenci2 = new OgrenciBilgileri();
+
+            ogrenci2.Isim = "Ahmet";
+            ogrenci2.Soyisim = "Necdet";
+            ogrenci2.OgrenciNumara = 2589;
+            ogrenci2.Sinif = 0;
+
+            Console.WriteLine("************");
+            ogrenci2.OgrenciBilgileriYazdir();
+            Console.WriteLine("************");
+            ogrenci2.SinifAtlat();
+            ogrenci2.OgrenciBilgileriYazdir();
+
+            Console.WriteLine("************");
+            OgrenciBilgileri ogrenci1 = new OgrenciBilgileri("Kerem", "Kacar", 198, 122);
+            ogrenci1.OgrenciBilgileriYazdir();
+
+            Console.ReadLine();
+        }
+    }
+
+    class OgrenciBilgileri
+    {
+        private string isim;
+        private string soyisim;
+        private int ogrenciNumara;
+        private int sinif;
+
+        public string Isim { get => isim; set => isim = value; } // Isim metodunda private isim'e value ata ve isim'i returnle
+        public string Soyisim { get { return soyisim; } set { soyisim = value; } } // Yukarıdaki yazım ile aynı anlama geliyor.
+
+        public int OgrenciNumara { get => ogrenciNumara; set => ogrenciNumara = value; }
+
+        public int Sinif { get => sinif;
+            set { if (value<1)
+                {
+                    Console.WriteLine("Geçersiz bir sınıf girdiniz.");
+                        value = 1;
+                }
+                sinif = value;
+            } 
+        }
+
+        public OgrenciBilgileri() { }
+
+        public OgrenciBilgileri (string ad, string soyad, int no, int cls)
+        {
+            this.isim = ad;
+            this.soyisim = soyad; //iki türlü de yazılabilir.
+            ogrenciNumara = no;
+            sinif = cls;
+        }
+
+        public void OgrenciBilgileriYazdir ()
+        {
+            Console.WriteLine("Öğrenci Adı= {0}", Isim);
+            Console.WriteLine("Öğrenci Soyadı= {0}", Soyisim);
+            Console.WriteLine("Öğrenci Numarası= {0}", OgrenciNumara);
+            Console.WriteLine("Öğrenci Sınıfı= {0}", Sinif);
+        }
+
+        public void SinifAtlat ()
+        {
+            Sinif++;
+        }
+
+        public void SinifDusur()
+        {
+            Sinif--;
+        }
+    }
+}
