@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Kurucu_Constructor_Metot
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Calisanlar calisanlar = new Calisanlar("Kerem", "Kacar", 25, "Dış Ticaret");
+            calisanlar.CalisanBilgileriniEkranaYazdirma();
+            Console.ReadLine();
+
+        }
+    }
+
+    class Calisanlar { 
+    
+        public string Ad;
+        public string Soyad;
+        public int Numara;
+        public string Departman;
+
+        public Calisanlar(string ad, string soyad, int numara, string departman) {
+
+            this.Ad = ad;
+            this.Soyad = soyad;
+            this.Numara = numara;
+            this.Departman = departman;
+        }
+
+        public Calisanlar(string ad, string soyad)
+        {
+
+            this.Ad = ad;
+            this.Soyad = soyad;
+        }
+
+        public Calisanlar() { }         //Classın diğer metotlarının çalışabilmesi için yapılması gereken
+
+        public void CalisanBilgileriniEkranaYazdirma ()
+        {
+            Console.WriteLine("Çalışan Adı= " + Ad);
+            Console.WriteLine("Çalışan Soyadı= " + Soyad);
+            Console.WriteLine("Çalışan Numarası= " + Numara);
+            Console.WriteLine("Çalışan Departmanı= " + Departman);
+        }
+
+    }
+}
