@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Enum
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            Console.WriteLine(Gunler.Cuma);
+            Console.WriteLine((int)Gunler.Perşembe);
+            Console.WriteLine((int)Gunler.Pazar);
+            int i1 = 23;
+            if (i1 <= (int)Gunler.Cumartesi)
+            {
+                Console.WriteLine("Henüz hafta sonuna gelmediniz.");
+            }
+            Console.ReadLine();
+        }
+    }
+
+    enum Gunler
+    {
+        Pazartesi,
+        Salı,
+        Çarşamba,
+        Perşembe,
+        Cuma,
+        Cumartesi = 25,
+        Pazar
+    }
+}
