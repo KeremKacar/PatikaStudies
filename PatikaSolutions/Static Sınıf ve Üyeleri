@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Statik_Sınıflar
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(Calisan.CalisanSayisi);
+            Calisan calisan1 = new Calisan("Kerem", "Kacar", "Dış Ticaret");
+            Console.WriteLine(Calisan.CalisanSayisi);
+            int i1 = Matematik.Topla(5, 7);
+            int i2 = Matematik.Cikart(1233, 959);
+
+            Console.WriteLine(Matematik.Topla(5, 7) + Matematik.Cikart(1233, 959));
+            Console.WriteLine(i1 + " " + i2);
+            Console.ReadLine();
+        }
+    }
+
+    class Calisan
+    {
+        private static int calisanSayisi;
+
+        private string ad;
+        private string soyad;
+        private string departman;
+
+        public static int CalisanSayisi { get { return calisanSayisi; } set { calisanSayisi = value; } }
+
+        public Calisan(string isim, string soyisim, string bolum)
+        {
+            this.ad = isim;
+            this.soyad = soyisim;
+            this.departman = bolum;
+            calisanSayisi++;
+        }
+
+        static Calisan()
+        {
+            calisanSayisi = 0;
+        }
+
+    }
+
+    static class Matematik
+    {
+        public static int Topla (int i1, int i2)
+        {
+            return i1 + i2;
+        }
+
+        public static int Cikart (int i1, int i2)
+        {
+            return i1 - i2;
+        }
+    }
+}
